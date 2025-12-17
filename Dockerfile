@@ -5,7 +5,10 @@ COPY app.py .
 
 RUN apk add --no-cache python3 py3-pip
 
-RUN pip3 install flask
+RUN python3 -m venv /opt/venv && \
+      pip3 install flask
+
+ENV PATH="/opt/venv/bin:$PATH"
 
 EXPOSE 5000
 
